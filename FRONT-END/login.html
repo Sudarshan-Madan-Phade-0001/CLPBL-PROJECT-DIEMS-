@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
   <link rel="stylesheet" href="style.css">
-  <script type="text/javascript" src="validation.js" defer></script>
+    
 </head>
 <body>
   <div class="wrapper">
@@ -24,7 +24,22 @@
         </label>
         <input type="password" name="password" id="password-input" placeholder="Password">
       </div>
-      <button type="submit">Login</button>
+    <button type="submit" onclick="return validateForm()">Login</button>
+    <script>
+      function validateForm() {
+      const email = document.getElementById('email-input').value.trim();
+      const password = document.getElementById('password-input').value.trim();
+      const errorMessage = document.getElementById('error-message');
+
+      if (!email || !password) {
+        errorMessage.textContent = 'Please fill in both email and password.';
+        return false;
+      }
+
+      window.location.href = 'index.html';
+      return false;
+      }
+    </script>
     </form>
     <p>New here? <a href="signup.html">Create an Account</a></p>
   </div>

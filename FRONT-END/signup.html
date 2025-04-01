@@ -36,7 +36,22 @@
         </label>
         <input type="password" name="repeat-password" id="repeat-password-input" placeholder="Repeat Password">
       </div>
-      <button type="submit">Signup</button>
+      <button type="submit" onclick="return validateForm()">Signup</button>
+      <script>
+        function validateForm() {
+        const email = document.getElementById('email-input').value.trim();
+        const password = document.getElementById('password-input').value.trim();
+        const errorMessage = document.getElementById('error-message');
+  
+        if (!email || !password) {
+          errorMessage.textContent = 'Please fill in all required fields. No field can be left empty.';
+          return false;
+        }
+  
+        window.location.href = 'index.html';
+        return false;
+        }
+      </script>
     </form>
     <p>Already have an Account? <a href="login.html">login</a> </p>
   </div>
