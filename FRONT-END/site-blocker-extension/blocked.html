@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Website Blocked</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    
+    .container {
+      text-align: center;
+      max-width: 600px;
+      padding: 2rem;
+      background-color: rgba(7, 123, 50, 0.1);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(7, 123, 50, 0.3);
+    }
+    
+    h1 {
+      color: #077b32;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    p {
+      font-size: 1.2rem;
+      margin: 1rem 0;
+      line-height: 1.6;
+    }
+    
+    .website-name {
+      font-weight: bold;
+      color: #077b32;
+    }
+    
+    button {
+      background-color: #077b32;
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 2rem;
+      transition: all 0.3s;
+    }
+    
+    button:hover {
+      background-color: #065d26;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(7, 123, 50, 0.4);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Website Blocked</h1>
+    <p>You've reached your daily time limit for <span id="website-name" class="website-name">this website</span>.</p>
+    <p>Take a break and focus on something productive!</p>
+    <button id="focus-button">Start Focus Session</button>
+  </div>
+  
+  <script>
+    // Get the website name from the URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const site = urlParams.get('site');
+    
+    if (site) {
+      document.getElementById('website-name').textContent = site;
+    }
+    
+    document.getElementById('focus-button').addEventListener('click', function() {
+      // Redirect to focus timer page
+      window.location.href = 'http://localhost:5500/FRONT-END/focus-timer.html';
+    });
+  </script>
+</body>
+</html>

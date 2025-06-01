@@ -238,3 +238,27 @@ section{
         margin-top: 15px;
     }
 }
+
+/* Website Blocker Button Styles */
+.btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.btn-group a {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-group button {
+    width: 200px;
+    margin: 10px;
+}
+
+.btn-accent {
+    background-color: #065d26 !important;
+    border: 2px solid #077b32 !important;
+}

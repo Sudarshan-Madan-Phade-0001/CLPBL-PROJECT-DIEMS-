@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site Blocker Extension Guide</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      color: #333;
+    }
+    
+    h1, h2 {
+      color: #077b32;
+    }
+    
+    .step {
+      background-color: #f5f5f5;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-left: 4px solid #077b32;
+      border-radius: 0 5px 5px 0;
+    }
+    
+    .step h3 {
+      margin-top: 0;
+    }
+    
+    code {
+      background-color: #eee;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+    
+    .note {
+      background-color: #fff8e1;
+      padding: 10px;
+      border-left: 4px solid #ffc107;
+      margin: 20px 0;
+    }
+    
+    img {
+      max-width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Site Blocker Extension Guide</h1>
+  
+  <p>This guide will help you install and configure the Site Blocker extension to automatically block websites when time limits are reached and show notifications.</p>
+  
+  <div class="note">
+    <strong>Note:</strong> This extension is required for the automatic blocking feature to work. Without it, the web app will still track time but won't be able to block websites or show notifications on them.
+  </div>
+  
+  <h2>Installation Steps</h2>
+  
+  <div class="step">
+    <h3>Step 1: Open Chrome Extensions Page</h3>
+    <p>Open Chrome and navigate to <code>chrome://extensions/</code> in your address bar.</p>
+  </div>
+  
+  <div class="step">
+    <h3>Step 2: Enable Developer Mode</h3>
+    <p>Enable "Developer mode" using the toggle in the top-right corner of the extensions page.</p>
+  </div>
+  
+  <div class="step">
+    <h3>Step 3: Load the Extension</h3>
+    <p>Click the "Load unpacked" button and select the <code>site-blocker-extension</code> folder from your Screen Time Tracker project.</p>
+  </div>
+  
+  <div class="step">
+    <h3>Step 4: Get Your Extension ID</h3>
+    <p>After loading the extension, you'll see it in the list of installed extensions. Look for the ID shown under the extension name. It will look something like: <code>abcdefghijklmnopqrstuvwxyzabcdef</code></p>
+  </div>
+  
+  <div class="step">
+    <h3>Step 5: Update Your Web App</h3>
+    <p>Open the <code>website-blocker.html</code> file in a text editor and find the line:</p>
+    <code>const EXTENSION_ID = "UPDATE_WITH_YOUR_EXTENSION_ID";</code>
+    <p>Replace <code>UPDATE_WITH_YOUR_EXTENSION_ID</code> with your actual extension ID from Step 4.</p>
+  </div>
+  
+  <h2>How It Works</h2>
+  
+  <p>Once installed and configured, the extension will:</p>
+  
+  <ol>
+    <li>Block websites when their time limits are reached</li>
+    <li>Show a notification on the social media site when time is up</li>
+    <li>Redirect to a blocked page if you try to access a website that has reached its time limit</li>
+  </ol>
+  
+  <div class="note">
+    <strong>Important:</strong> The extension needs to be installed on every device where you want the blocking feature to work. The extension ID will be different for each installation, so you'll need to update the ID in your web app accordingly.
+  </div>
+  
+  <h2>Testing the Extension</h2>
+  
+  <p>To test if the extension is working correctly:</p>
+  
+  <ol>
+    <li>Add a website with a short time limit (e.g., 1 minute)</li>
+    <li>Click "Use Now" and start using the website</li>
+    <li>When the time is up, you should see a notification on the website</li>
+    <li>If you try to access the website again, you should be redirected to the blocked page</li>
+  </ol>
+  
+  <p>If you encounter any issues, make sure the extension ID is correctly set in your web app and that the extension is properly installed.</p>
+</body>
+</html>

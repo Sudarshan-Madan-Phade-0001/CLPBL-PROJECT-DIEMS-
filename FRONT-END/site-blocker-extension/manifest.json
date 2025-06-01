@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Site Blocker",
+  "version": "1.0",
+  "description": "Blocks websites after time limit is reached",
+  "permissions": ["storage", "tabs", "webNavigation"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["content.js"]
+  }],
+  "externally_connectable": {
+    "matches": ["*://*/*"]
+  },
+  "web_accessible_resources": [{
+    "resources": ["blocked.html"],
+    "matches": ["<all_urls>"]
+  }]
+}
