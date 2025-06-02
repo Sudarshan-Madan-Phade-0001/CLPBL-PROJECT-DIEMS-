@@ -1,14 +1,9 @@
-// Email Service for Screen Time Tracker
-// This is a simulated email service for demonstration purposes
-// In a production environment, you would use a real email service like SendGrid, Mailgun, etc.
-
 class EmailService {
   constructor() {
     this.emailLogs = [];
     this.loadEmailLogs();
   }
   
-  // Load email logs from localStorage
   loadEmailLogs() {
     try {
       const logs = localStorage.getItem('emailLogs');
@@ -19,7 +14,6 @@ class EmailService {
     }
   }
   
-  // Save email logs to localStorage
   saveEmailLogs() {
     try {
       localStorage.setItem('emailLogs', JSON.stringify(this.emailLogs));
@@ -28,7 +22,6 @@ class EmailService {
     }
   }
   
-  // Send a welcome email to new users
   sendWelcomeEmail(name, email) {
     const emailData = {
       to: email,
@@ -50,17 +43,14 @@ class EmailService {
       sentAt: new Date().toISOString()
     };
     
-    // Log the email
     this.emailLogs.push(emailData);
     this.saveEmailLogs();
     
-    // In a real implementation, you would send the email here
     console.log(`Welcome email sent to ${email}`);
     
     return true;
   }
   
-  // Send a login notification email
   sendLoginNotificationEmail(email) {
     const now = new Date();
     const formattedDate = now.toLocaleString();
@@ -80,21 +70,17 @@ class EmailService {
       sentAt: now.toISOString()
     };
     
-    // Log the email
     this.emailLogs.push(emailData);
     this.saveEmailLogs();
     
-    // In a real implementation, you would send the email here
     console.log(`Login notification email sent to ${email}`);
     
     return true;
   }
   
-  // Get all email logs
   getEmailLogs() {
     return this.emailLogs;
   }
 }
 
-// Create a global instance of the email service
 const emailService = new EmailService();

@@ -6,7 +6,7 @@ function cancel(){
     const navbar = document.querySelector(".dropdown")
     navbar.style.transform = "translateY(-500px)"
 }
-// Typewriter Effect
+
 const texts = [
     "on a mission to reduce distractions and reclaim my time."
 ]

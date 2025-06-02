@@ -1,6 +1,3 @@
-// Content script for Site Blocker extension
-
-// Listen for messages from the background script
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
   if (message.action === "showTimeUpNotification") {
     showTimeUpNotification(message.website);
@@ -9,9 +6,7 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
   }
 });
 
-// Show a notification that time is up
 function showTimeUpNotification(website) {
-  // Create overlay notification
   const overlay = document.createElement('div');
   overlay.style.cssText = `
     position: fixed;
@@ -39,7 +34,6 @@ function showTimeUpNotification(website) {
   
   document.body.appendChild(overlay);
   
-  // Add click event to button
   overlay.querySelector('button').addEventListener('click', function() {
     window.close();
   });
